@@ -1,0 +1,30 @@
+<ul class="calendar">
+	<li>
+		<p class="dayName">SUN</p>
+	</li>
+	<li>
+		<p class="dayName">MON</p>
+	</li>
+	<li>
+		<p class="dayName">TUES</p>
+	</li>
+	<li>
+		<p class="dayName">WED</p>
+	</li>
+	<li>
+		<p class="dayName">THURS</p>
+	</li>
+	<li>
+		<p class="dayName">FRI</p>
+	</li>
+	<li>
+		<p class="dayName">SAT</p>
+	</li>
+	<li ng-repeat="day in dateMonthlyRange.days">
+		<div class="calDay" ng-class="{'notThisMonth': day.month !== currentMonth, 'today': isToday(day.date)}">
+			<span>
+				{{ day.date | date:'dd'}}
+			</span>
+		</div>		
+	</li>
+</ul>

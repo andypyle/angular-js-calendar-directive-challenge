@@ -2,14 +2,37 @@
 <html ng-app="calendarDemoApp">
 <head>
 <title>Calendar Directive Challenge</title>
-<link rel="stylesheet" type="text/css" href="./main.css" />
+<link rel="stylesheet" type="text/css" href="./main.min.css" />
 </head>
-<body>
-
+<body ng-app="calendarDemoApp">
 <!-- your code for nav and calendar directive instance here -->
 
+<main ng-controller="calendarCtrl">
+	
+	<header>
+		<div class="pickMonthYear">
+			<select ng-model="pickMonth" ng-options="month.name for month in selectableMonths" ng-change="changeDate(pickMonth, pickYear)">
+			</select>
+			<select ng-model="pickYear" ng-options="year for year in selectYears" ng-change="changeDate(pickMonth, pickYear)">
+			</select>
+		</div>
+
+		<div class="currentMonthYear">
+			<h2 ng-bind="currentMonthYear"></h2>
+		</div>
+
+	</header>
+
+	<calendar difdate="pickedDate"></calender>
+
+</main>
+
+
+
 <script type="text/javascript" src="./bower_components/angular/angular.js"></script>
-<script type="text/javascript" src="./utilities/calendarRange.js"></script>
+<script type="text/javascript" src="./bower_components/moment/moment.js"></script>
+<script type="text/javascript" src="./bower_components/angular-momentjs/angular-momentjs.js"></script>
+<script type="text/javascript" src="./utilities/calendar-range/calendarRange.js"></script>
 <script type="text/javascript" src="./app.js"></script>
 </body>
 </html>
